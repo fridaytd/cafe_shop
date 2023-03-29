@@ -2,9 +2,10 @@
 
 namespace MVC\Controllers;
 
-class Home{
+
+class Home extends \MVC\Core\Controller {
     function Show(){
-        echo 'Hello';
+        echo $this->model('MVC\\Models\\UserModel')->getUserName();
     }
 
     function huhu() {

@@ -11,21 +11,16 @@ class App{
     function __construct() {
        $arr = $this->UrlProcess();
 
-       // Xu li controller
-
-        
-
+       // Xu li controller      
         if (isset($arr[0]))  {
             if (class_exists('MVC\\Controllers\\' . $arr[0])) {
-                $this->controller = 'MVC\\Controllers\\' . $arr[0];
+                $this->controller = $arr[0];
             }
             unset($arr[0]);
         }
-
-        // require_once '../src/controllers/' . $this->controller . '.php';
+        $this->controller = new ('MVC\\Controllers\\' . $this->controller);
 
         // Xu li action
-
         if (isset($arr[1])) {
             if(method_exists($this->controller, $arr[1])) {
                 $this->action = $arr[1];
@@ -34,14 +29,13 @@ class App{
         }
 
         // Xu ly params
-
         $this->params = $arr?array_values($arr):[];
 
         // echo $this->controller . '<br>';
         // echo $this->action . '<br>';
         // print_r($this->params);
 
-        call_user_func_array([new $this->controller, $this->action], $this->params);
+        call_user_func_array([$this->controller, $this->action], $this->params);
 
     }
 

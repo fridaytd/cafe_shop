@@ -2,8 +2,8 @@
 
 namespace MVC\Controllers;
 
-class Contact{
+class Contact extends \MVC\Core\Controller{
     function Show() {
         echo 'Contact';
     }
-}   
+}
