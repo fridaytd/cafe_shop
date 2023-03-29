@@ -1,4 +1,7 @@
 <?php
 session_start();
-require_once '../mcv/bridge.php';
-$myApp = new App();
+
+require '../vendor/autoload.php';
+// require_once '../mvc/bridge.php';
+
+$myApp = new MVC\Core\App;
