@@ -2,19 +2,12 @@
 
 namespace MVC\Controllers;
 
-
-class Home extends \MVC\Core\Controller
+class Intro extends \MVC\Core\Controller
 {
     function Show()
     {
-
         $this->view('template', [
-            'page' => 'Home'
+            'page' => 'Intro'
         ]);
-    }
-
-    function huhu()
-    {
-
     }
 }

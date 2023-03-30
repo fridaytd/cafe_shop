@@ -2,8 +2,12 @@
 
 namespace MVC\Controllers;
 
-class Contact extends \MVC\Core\Controller{
-    function Show() {
-        echo 'Contact';
+class Contact extends \MVC\Core\Controller
+{
+    function Show()
+    {
+        $this->view('template', [
+            'page' => 'Contact'
+        ]);
     }
 }

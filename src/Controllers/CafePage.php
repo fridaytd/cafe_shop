@@ -2,19 +2,12 @@
 
 namespace MVC\Controllers;
 
-
-class Home extends \MVC\Core\Controller
+class CafePage extends \MVC\Core\Controller
 {
     function Show()
     {
-
         $this->view('template', [
-            'page' => 'Home'
+            'page' => 'CafePage'
         ]);
-    }
-
-    function huhu()
-    {
-
     }
 }

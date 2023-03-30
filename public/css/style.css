@@ -1,0 +1,50 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+nav {
+    box-shadow: 1px 1px 10px 2px #0C713D;
+    z-index: 100;
+}
+
+nav.navbar .nav-item {
+    margin-left: 8px;
+}
+
+nav.navbar .nav-item a.nav-link {
+    font-weight: bold;
+    font-size: 1.2em;
+    --s: 0.23em;
+    /* the thickness of the line */
+    --c: #0C713D;
+    /* the color */
+
+    color: #0000;
+    padding-bottom: var(--s);
+    background:
+        linear-gradient(90deg, var(--c) 50%, #000 0) calc(100% - var(--_p, 0%))/200% 100%,
+        linear-gradient(var(--c) 0 0) 0% 100%/var(--_p, 0%) var(--s) no-repeat;
+    -webkit-background-clip: text, padding-box;
+    background-clip: text, padding-box;
+    transition: 0.5s;
+}
+
+nav.navbar .nav-item a.nav-link:hover {
+    --_p: 100%
+}
+
+nav.navbar .nav-item a.active {
+    --_p: 100%;
+    color: #0C713D;
+}
+
+main {
+    min-height: 500px;
+}
+
+footer {
+    color: white;
+    background-color: black;
+    height: 30px;
+}
