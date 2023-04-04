@@ -3,14 +3,15 @@
 namespace MVC\Core;
 
 class App{
+    private $db;
 
     protected $controller = 'Home';
     protected $action = 'Show';
     protected $params;
 
-    function __construct() {
+    function __construct($pdo) {
        $arr = $this->UrlProcess();
-
+       $this->db = $pdo;
        // Xu li controller      
         if (isset($arr[0]))  {
             if (class_exists('MVC\\Controllers\\' . $arr[0])) {
