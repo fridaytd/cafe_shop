@@ -81,7 +81,7 @@
 
                                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                                         <button type="submit" class="btn btn-lg"
-                                            style="background-color: #0C713D; color: white">Register</button>
+                                            style="background-color: #0C713D; color: white">Đăng ký</button>
                                     </div>
 
                                 </form>

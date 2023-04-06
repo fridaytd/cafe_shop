@@ -19,18 +19,25 @@
 
                 <div class="card bg-glass">
                     <div class="card-body px-4 py-5 px-md-5">
-                        <form>
-
+                        <form id="login-form" action="/Login" method="POST">
                             <!-- username input -->
-                            <div class="form-outline mb-4">
-                                <input type="text" name="username" id="username" class="form-control" />
-                                <label class="form-label" for="username">Username</label>
+                            <div class="form-group mb-3">
+                                <div class="form-outline my-0">
+                                    <label class="form-label" for="username">Username</label>
+                                    <input type="text" name="username" id="username" class="form-control" />
+
+                                </div>
+                                <span class="form-message"></span>
                             </div>
 
                             <!-- Password input -->
-                            <div class="form-outline mb-4">
-                                <input type="password" id="password" class="form-control" />
-                                <label class="form-label" for="password">Password</label>
+                            <div class="form-group mb-3">
+                                <div class="form-outline my-0">
+                                    <label class="form-label" for="password">Password</label>
+                                    <input type="password" id="password" class="form-control" />
+
+                                </div>
+                                <span class="form-message"></span>
                             </div>
 
                             <!-- Checkbox -->
@@ -46,7 +53,7 @@
                             <div class="form-check d-flex justify-content-center mb-4">
                                 <button type="submit" class="btn btn-block mb-4"
                                     style=" background-color: #0C713D; color: white">
-                                    Sign up
+                                    Đăng nhập
                                 </button>
 
                             </div>
@@ -59,3 +66,25 @@
     </div>
 </section>
 <!-- Section: Design Block -->
+
+<script src="/js/validator.js"></script>
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // Mong muốn của chúng ta
+        Validator({
+            form: '#login-form',
+            formGroupSelector: '.form-group',
+            errorSelector: '.form-message',
+            rules: [
+                Validator.isRequired('#username'),
+                Validator.isRequired('#password'),
+            ],
+            onSubmit: function () {
+                // Call API
+                document.getElementById('login-form').submit()
+            }
+        });
+    });
+
+</script>
