@@ -5,17 +5,14 @@ use PDO;
 
 class PDOFactory
 {
-    public function create(array $config)
+    public static function create()
     {
-        [
-            'dbhost' => $dbhost,
-            'dbname' => $dbname,
-            'dbuser' => $dbuser,
-            'dbpass' => $dbpass
-        ] = $config;
+        $dbhost = $_ENV['DBHOST'];
+        $dbname = $_ENV['DBNAME'];
+        $dbuser = $_ENV['DBUSER'];
+        $dbpass = $_ENV['DBPASS'];
         $dsn = "mysql:host={$dbhost};dbname={$dbname};charset=utf8mb4";
         $options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
         return new PDO($dsn, $dbuser, $dbpass, $options);
     }
 }
-?>

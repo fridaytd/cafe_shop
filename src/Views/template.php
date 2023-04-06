@@ -56,8 +56,10 @@
                             </li>
                         </ul>
                         <div>
-                            <button class="btn" style="background-color: #0C713D; color: white">Đăng nhập</button>
-                            <button class="btn" style="border:2px solid #0C713D; color: #0C713D;">Đăng kí</button>
+                            <a href="/Login" class="btn" style="background-color: #0C713D; color: white">Đăng
+                                nhập</a>
+                            <a href="/Register" class="btn" style="border:2px solid #0C713D; color: #0C713D;">Đăng
+                                kí</a>
                         </div>
                     </div>
                 </div>
@@ -65,13 +67,13 @@
         </nav>
         <a href="#header" id="return-to-top" class="btn"><i class="fas fa-chevron-up" style="color: #0e4c2f;"></i></a>
     </header>
+    <main>
+        <?php if (file_exists('../src/Views/page/' . $data['page'] . '_page.php')) {
 
-    <?php if (file_exists('../src/Views/page/' . $data['page'] . '_page.php')) {
-
-        include '../src/Views/page/' . $data['page'] . '_page.php';
-    }
-    ?>
-
+            include '../src/Views/page/' . $data['page'] . '_page.php';
+        }
+        ?>
+    </main>
     <footer class="mt-3">
         <div class="top-footer">
             <div class="container">
