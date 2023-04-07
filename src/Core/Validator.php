@@ -47,6 +47,11 @@ class Validator
         }
     }
 
+    public function getValidatedValue()
+    {
+        return $this->value;
+    }
+
     public function isRequired($key)
     {
         if (!isset($this->errors[$key])) {

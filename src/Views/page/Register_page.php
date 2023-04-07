@@ -21,7 +21,9 @@
 
                                             </div>
                                         </div>
-                                        <span class="form-message"></span>
+                                        <span class="form-message">
+                                            <?= (isset($data['errors']['username'])) ? $data['errors']['username'] : '' ?>
+                                        </span>
                                     </div>
                                     <div class="form-group  mb-3">
                                         <div class="d-flex flex-row align-items-center">
@@ -33,7 +35,9 @@
                                             </div>
 
                                         </div>
-                                        <span class="form-message"></span>
+                                        <span class="form-message">
+                                            <?= (isset($data['errors']['fullname'])) ? $data['errors']['fullname'] : '' ?>
+                                        </span>
                                     </div>
 
                                     <div class="form-group mb-3">
@@ -46,7 +50,9 @@
                                             </div>
 
                                         </div>
-                                        <span class="form-message"></span>
+                                        <span class="form-message">
+                                            <?= (isset($data['errors']['phone'])) ? $data['errors']['phone'] : '' ?>
+                                        </span>
                                     </div>
 
                                     <div class="form-group  mb-3">
@@ -59,7 +65,9 @@
 
                                             </div>
                                         </div>
-                                        <span class="form-message"></span>
+                                        <span class="form-message">
+                                            <?= (isset($data['errors']['password'])) ? $data['errors']['password'] : '' ?>
+                                        </span>
                                     </div>
 
                                     <div class="form-group mb-3">
@@ -74,7 +82,9 @@
                                             </div>
 
                                         </div>
-                                        <span class="form-message"></span>
+                                        <span class="form-message">
+                                            <?= (isset($data['errors']['password_confirmation'])) ? $data['errors']['password_confirmation'] : '' ?>
+                                        </span>
                                     </div>
 
 
@@ -89,8 +99,7 @@
                             </div>
                             <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-                                    class="img-fluid" alt="Sample image">
+                                <img src="/images/Register/draw1.webp" class="img-fluid" alt="Sample image">
 
                             </div>
                         </div>
@@ -100,7 +109,7 @@
         </div>
     </div>
 </section>
-<!-- <script src="/js/validator.js"></script> -->
+<script src="/js/validator.js"></script>
 <script>
 
     document.addEventListener('DOMContentLoaded', function () {

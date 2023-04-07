@@ -86,7 +86,7 @@ h2 {
     text-align: left;
 }
 
-.form-group.invalid .form-message {
+.form-group .form-message {
     color: #f33a58;
 }
 

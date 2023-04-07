@@ -26,7 +26,6 @@ class User
     public function fill($user)
     {
         [
-            'id' => $this->id,
             'username' => $this->username,
             'fullname' => $this->fullname,
             'phone' => $this->phone,
@@ -69,7 +68,7 @@ class User
     public function save()
     {
         $result = false;
-
+        $this->hashPassword();
         if ($this->id >= 0) {
             $statement = $this->pdo->prepare('UPDATE users SET username = :username, fullname = :fullname, phone:=phone, password_hash = :password_hash, update_at = now() WHERE id=:id');
             $statement->execute([
@@ -80,7 +79,7 @@ class User
                 'id' => $this->id
             ]);
         } else {
-            $statement = $this->pdo->prepare('INSERT INTO users(username, fullname, phone, password_hash, create_at, update_at) VALUES (:username, :fullname, :phone, :password_hash, now(), now())');
+            $statement = $this->pdo->prepare('INSERT INTO users(username, fullname, phone, password_hash, created_at, updated_at) VALUES (:username, :fullname, :phone, :password_hash, now(), now())');
             $statement->execute([
                 'username' => $this->username,
                 'fullname' => $this->fullname,
@@ -160,5 +159,11 @@ class User
             return $user;
         }
         return false;
+    }
+
+    public function hashPassword()
+    {
+        $this->password_hash = password_hash($this->password, PASSWORD_DEFAULT);
+        return $this;
     }
 }

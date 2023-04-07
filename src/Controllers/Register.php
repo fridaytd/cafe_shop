@@ -21,7 +21,20 @@ class Register extends \MVC\Core\Controller
             ]);
             $validator->validate();
             $errors = $validator->getErrors();
-            \MVC\Core\Router::redirect('/Login');
+
+            if (!empty($errors)) {
+                $this->view('template', [
+                    'page' => 'Register',
+                    'errors' => $errors
+                ]);
+            } else {
+                $user = new \MVC\Models\User();
+                $value = $validator->getValidatedValue();
+                $user->fill($value);
+                $user->save();
+                \MVC\Core\Router::redirect('/Login');
+            }
+
 
         }
     }
