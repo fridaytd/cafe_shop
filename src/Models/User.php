@@ -30,7 +30,7 @@ class User
             'username' => $this->username,
             'fullname' => $this->fullname,
             'phone' => $this->phone,
-            'password_hash' => $this->password_hash
+            'password' => $this->password
         ] = $user;
 
         return $this;
@@ -112,7 +112,7 @@ class User
         return $this->findByUsername($username) ? true : false;
     }
 
-    public function checkPhoneExistd($phone)
+    public function checkPhoneExists($phone)
     {
         return $this->findByPhone($phone) ? true : false;
     }

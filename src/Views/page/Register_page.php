@@ -100,7 +100,7 @@
         </div>
     </div>
 </section>
-<script src="/js/validator.js"></script>
+<!-- <script src="/js/validator.js"></script> -->
 <script>
 
     document.addEventListener('DOMContentLoaded', function () {
