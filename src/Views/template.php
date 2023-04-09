@@ -56,10 +56,13 @@
                             </li>
                         </ul>
                         <div>
-                            <a href="/Login" class="btn" style="background-color: #0C713D; color: white">Đăng
-                                nhập</a>
-                            <a href="/Register" class="btn" style="border:2px solid #0C713D; color: #0C713D;">Đăng
-                                kí</a>
+                            <?php
+                            if (isset($_SESSION['islogin'])) {
+                                include '../src/Views/partition/islogin.php';
+                            } else {
+                                include '../src/Views/partition/islogout.php';
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>

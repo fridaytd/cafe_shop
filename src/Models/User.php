@@ -23,6 +23,21 @@ class User
         $this->pdo = PDOFactory::create();
     }
 
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getUserName()
+    {
+        return $this->username;
+    }
+
+    public function getFullName()
+    {
+        return $this->fullname;
+    }
+
     public function fill($user)
     {
         [
@@ -124,9 +139,8 @@ class User
         ]);
 
         if ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-            $user = new User();
-            $user->fillFormDB(($row));
-            return $user;
+            $this->fillFormDB(($row));
+            return $this;
         }
         return false;
     }
@@ -139,9 +153,8 @@ class User
         ]);
 
         if ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-            $user = new User();
-            $user->fillFormDB(($row));
-            return $user;
+            $this->fillFormDB(($row));
+            return $this;
         }
         return false;
     }
@@ -154,9 +167,8 @@ class User
         ]);
 
         if ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-            $user = new User();
-            $user->fillFormDB(($row));
-            return $user;
+            $this->fillFormDB(($row));
+            return $this;
         }
         return false;
     }
@@ -165,5 +177,15 @@ class User
     {
         $this->password_hash = password_hash($this->password, PASSWORD_DEFAULT);
         return $this;
+    }
+
+    public function authenticate($username, $password)
+    {
+        if ($this->findByUsername($username)) {
+            if (password_verify($password, $this->password_hash)) {
+                return $this;
+            }
+        }
+        return false;
     }
 }

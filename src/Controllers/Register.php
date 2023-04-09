@@ -15,7 +15,7 @@ class Register extends \MVC\Core\Controller
             $validator = new Validator([
                 'username' => 'isRequired | unique: User, username',
                 'fullname' => 'isRequired',
-                'phone' => 'isRequired | isPhone',
+                'phone' => 'isRequired | isPhone | unique: User, phone',
                 'password' => 'isRequired | minLength: 8',
                 'password_confirmation' => 'isRequired | isSame: password'
             ]);
@@ -32,10 +32,8 @@ class Register extends \MVC\Core\Controller
                 $value = $validator->getValidatedValue();
                 $user->fill($value);
                 $user->save();
-                \MVC\Core\Router::redirect('/Login');
+                echo '<script>alert("Đăng kí thành công");setTimeout(function(){window.location.href="/Login";}, 1000);</script>';
             }
-
-
         }
     }
 }

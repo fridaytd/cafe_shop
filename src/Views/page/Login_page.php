@@ -27,17 +27,21 @@
                                     <input type="text" name="username" id="username" class="form-control" />
 
                                 </div>
-                                <span class="form-message"></span>
+                                <span class="form-message">
+                                    <?= (isset($data['errors']['username'])) ? $data['errors']['username'] : '' ?>
+                                </span>
                             </div>
 
                             <!-- Password input -->
                             <div class="form-group mb-3">
                                 <div class="form-outline my-0">
                                     <label class="form-label" for="password">Password</label>
-                                    <input type="password" id="password" class="form-control" />
+                                    <input type="password" name="password" id="password" class="form-control" />
 
                                 </div>
-                                <span class="form-message"></span>
+                                <span class="form-message">
+                                    <?= (isset($data['errors']['password'])) ? $data['errors']['password'] : '' ?>
+                                </span>
                             </div>
 
                             <!-- Checkbox -->
@@ -57,6 +61,12 @@
                                 </button>
 
                             </div>
+                            <div class="form-group">
+                                <span class="form-message">
+                                    <?= (isset($data['authenticate']) && $data['authenticate'] === false) ? 'Username hoặc password không chính xác' : '' ?>
+                                </span>
+                            </div>
+
 
                         </form>
                     </div>

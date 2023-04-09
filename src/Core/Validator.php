@@ -97,7 +97,7 @@ class Validator
             if ($mo->$func($this->value[$key]) == false) {
                 return;
             } else {
-                $this->errors[$key] = $key . 'đã được sử dụng';
+                $this->errors[$key] = ucwords($key) . ' đã được sử dụng';
             }
         }
     }
