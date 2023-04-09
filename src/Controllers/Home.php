@@ -15,6 +15,8 @@ class Home extends \MVC\Core\Controller
 
     function huhu()
     {
-
+        echo "hhi";
+        var_dump('1');
+        die();
     }
 }

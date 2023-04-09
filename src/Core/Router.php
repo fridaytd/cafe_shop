@@ -19,7 +19,7 @@ class Router
             }
             unset($arr[0]);
         }
-
+        $this->controller = new('MVC\\Controllers\\' . $this->controller);
         // Xu li action
         if (isset($arr[1])) {
             if (method_exists($this->controller, $arr[1])) {
@@ -30,6 +30,8 @@ class Router
 
         // Xu ly params
         $this->params = $arr ? array_values($arr) : [];
+
+
 
     }
 
