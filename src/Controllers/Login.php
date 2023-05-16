@@ -3,8 +3,17 @@ namespace MVC\Controllers;
 
 class Login extends \MVC\Core\Controller
 {
+
+    private function checkAuthor()
+    {
+        if (isset($_SESSION['islogin'])) {
+            \MVC\Core\Router::redirect('/Home');
+            exit;
+        }
+    }
     function Show()
     {
+        $this->checkAuthor();
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $this->view('template', [
                 'page' => 'Login'
@@ -21,14 +30,17 @@ class Login extends \MVC\Core\Controller
                     'errors' => $errors
                 ]);
             } else {
-                $user = new \MVC\Models\User();
+                $user = $this->model('User');
                 $value = $validator->getValidatedValue();
                 if ($user->authenticate($value['username'], $value['password'])) {
-                    $_SESSION['islogin'] = [
-                        'user_id' => $user->getId(),
-                        'user_fullname' => $user->getFullName()
-                    ];
-                    echo '<script>alert("Đăng nhập thành công");setTimeout(function(){window.location.href="/Home";}, 1000);</script>';
+                    $_SESSION['islogin'] = 1;
+                    $_SESSION['user_id'] = $user->getId();
+                    $_SESSION['user_fullname'] = $user->getFullName();
+                    if ($value['username'] === 'admin') {
+                        echo '<script>alert("Đăng nhập admin thành công");setTimeout(function(){window.location.href="/admin/ShowF/Order";}, 1000);</script>';
+                    } else {
+                        echo '<script>alert("Đăng nhập thành công");setTimeout(function(){window.location.href="/Home";}, 1000);</script>';
+                    }
                 } else {
                     $this->view('template', [
                         'page' => 'Login',

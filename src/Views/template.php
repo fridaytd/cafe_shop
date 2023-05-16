@@ -13,6 +13,7 @@
     <title>
         <?= $data['page'] ?>
     </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
 
 <body>
@@ -43,12 +44,11 @@
                                     thiệu</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link <?= $data['page'] == 'TeaPage' ? 'active' : '' ?>"
-                                    href="/TeaPage">Trà</a>
+                                <a class="nav-link <?= $data['page'] == 'Tea' ? 'active' : '' ?>" href="/Tea">Trà</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link <?= $data['page'] == 'CafePage' ? 'active' : '' ?>"
-                                    href="/CafePage">Cà phê</a>
+                                <a class="nav-link <?= $data['page'] == 'Cafe' ? 'active' : '' ?>" href="/Cafe">Cà
+                                    phê</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link <?= $data['page'] == 'Contact' ? 'active' : '' ?>"
@@ -56,6 +56,7 @@
                             </li>
                         </ul>
                         <div>
+
                             <?php
                             if (isset($_SESSION['islogin'])) {
                                 include '../src/Views/partition/islogin.php';
@@ -63,6 +64,9 @@
                                 include '../src/Views/partition/islogout.php';
                             }
                             ?>
+                            <a href="/Cart" class="btn mt-0 p-0 position-relative"><i
+                                    style="color: #0C713D; font-size: 30px" class="fas fa-shopping-cart"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -82,7 +86,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
-                        <p><b>Trụ sở chính:</b> Công ty Cổ Phần Phúc Long Heritage - ĐKKD: 0316 871719
+                        <p><b>Trụ sở chính:</b> Công ty Cổ Phần Dang Tin Heritage - ĐKKD: 0316 871719
                             do sở KHĐT TPHCM cấp lần đầu ngày 21/05/2021</p>
                         <p><b>Nhà máy:</b> D_8D_CN Đường XE 1, Khu Công Nghiệp Mỹ Phước III, phường Mỹ Phước, thị xã Bến
                             Cát, tỉnh Bình Dương, Việt Nam</p>

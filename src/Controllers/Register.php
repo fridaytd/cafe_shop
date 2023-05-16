@@ -5,8 +5,16 @@ use MVC\Core\Validator;
 
 class Register extends \MVC\Core\Controller
 {
+    private function checkAuthor()
+    {
+        if (isset($_SESSION['islogin'])) {
+            \MVC\Core\Router::redirect('/Home');
+            exit;
+        }
+    }
     function Show()
     {
+        $this->checkAuthor();
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $this->view('template', [
                 'page' => 'Register'
@@ -28,7 +36,7 @@ class Register extends \MVC\Core\Controller
                     'errors' => $errors
                 ]);
             } else {
-                $user = new \MVC\Models\User();
+                $user = $this->model('User');
                 $value = $validator->getValidatedValue();
                 $user->fill($value);
                 $user->save();

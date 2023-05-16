@@ -42,7 +42,7 @@
 
                                     <div class="form-group mb-3">
                                         <div class="d-flex flex-row align-items-center ">
-                                            <i class="fas fa-envelope fa-lg me-3 fa-fw" style="color: #0C713D"></i>
+                                            <i class="fas fa-phone fa-lg me-3 fa-fw" style="color: #0C713D"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <label class="form-label" for="phone">Your Phone</label>
                                                 <input type="phone" id="phone" name="phone" class="form-control" />
